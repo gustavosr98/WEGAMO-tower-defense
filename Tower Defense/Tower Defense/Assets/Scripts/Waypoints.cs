@@ -17,4 +17,9 @@ public class Waypoints : MonoBehaviour {
     {
         return points[0];
     }
+
+    public Transform GetTarget(int index)
+    {
+        return points[index];
+    }
 }

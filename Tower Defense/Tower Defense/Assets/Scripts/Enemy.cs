@@ -18,12 +18,23 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Move();
+        MoveToTarget();
+        CheckForNextTarget();
 	}
 
-    void Move()
+    void MoveToTarget()
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
     }
+
+    void CheckForNextTarget()
+    {
+        if (Vector3.Distance(transform.position, target.position) <= 0.1f)
+        {
+            target = waypoints.GetTarget(wavepointIndex);
+        }
+    }
+
+
 }
