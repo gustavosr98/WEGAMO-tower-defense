@@ -22,4 +22,9 @@ public class Waypoints : MonoBehaviour {
     {
         return points[index];
     }
+
+    public int ExitIndex()
+    {
+        return (points.Length - 1);
+    }
 }

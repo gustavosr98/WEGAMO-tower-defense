@@ -32,9 +32,20 @@ public class Enemy : MonoBehaviour {
     {
         if (Vector3.Distance(transform.position, target.position) <= 0.1f)
         {
-            target = waypoints.GetTarget(wavepointIndex);
+            if (wavepointIndex >= waypoints.ExitIndex())
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                wavepointIndex++;
+                target = waypoints.GetTarget(wavepointIndex);
+            }
+            
         }
     }
+
+  
 
 
 }
